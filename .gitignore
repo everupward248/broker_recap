@@ -1,0 +1,13 @@
+#ignore the venv
+.venv/
+
+#ignore the .env
+.env
+
+#ignore the data
+data/
+
+#ignore pycache
+__pycache__
+
+
