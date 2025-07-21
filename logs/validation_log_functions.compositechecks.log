@@ -1,10 +1,11 @@
-2025-07-16 19:02:00,936 - functions.composite_checks - INFO - Validation columns successfuly parsed from the validation df, proceed to creating the valid and invalid dateframes for reporting - 16
-2025-07-16 19:02:00,937 - functions.composite_checks - INFO - Valid and Invalid dataframes created - 24
-2025-07-16 19:02:00,938 - functions.composite_checks - INFO - Default columns successfully added. - 45
-2025-07-16 19:02:00,938 - functions.composite_checks - INFO - Date column successfuly added to the valid entries for reporting. Date column of dtype: datetime64[ns] - 63
-2025-07-16 19:02:00,939 - functions.composite_checks - INFO - Account column successfuly added to the valid entries for reporting. Account column of dtype: string - 73
-2025-07-16 19:02:00,939 - functions.composite_checks - INFO - Quantity column successfuly added to the valid entries for reporting. Quantity column of dtype: float64 - 83
-2025-07-16 19:02:00,939 - functions.composite_checks - INFO - Trade price column successfuly added to the valid entries for reporting. Trade price column of dtype: float64 - 93
-2025-07-16 19:02:00,941 - functions.composite_checks - INFO - Identifer column successfuly added to the valid entries for reporting. Identifier column of dtype: string - 128
-2025-07-16 19:02:00,942 - functions.composite_checks - INFO - PS_ID column successfuly added to the valid entries for reporting. PS_ID column of dtype: string - 161
-2025-07-16 19:02:00,943 - functions.composite_checks - INFO - Executing broker column successfuly added to the valid entries for reporting. Executing broker column of dtype: string - 173
+2025-07-21 12:51:05,256 - functions.composite_checks - INFO - Validation columns successfuly parsed from the validation df, proceed to creating the valid and invalid dateframes for reporting - 16
+2025-07-21 12:51:05,257 - functions.composite_checks - INFO - Valid and Invalid dataframes created - 24
+2025-07-21 12:51:05,258 - functions.composite_checks - INFO - Default columns successfully added. - 45
+2025-07-21 12:51:05,259 - functions.composite_checks - INFO - Date column successfuly added to the valid entries for reporting. Date column of dtype: datetime64[ns] - 63
+2025-07-21 12:51:05,259 - functions.composite_checks - INFO - Account column successfuly added to the valid entries for reporting. Account column of dtype: string - 73
+2025-07-21 12:51:05,259 - functions.composite_checks - INFO - Quantity column successfuly added to the valid entries for reporting. Quantity column of dtype: float64 - 83
+2025-07-21 12:51:05,259 - functions.composite_checks - INFO - Trade price column successfuly added to the valid entries for reporting. Trade price column of dtype: float64 - 93
+2025-07-21 12:51:05,262 - functions.composite_checks - INFO - Identifer column successfuly added to the valid entries for reporting. Identifier column of dtype: string - 128
+2025-07-21 12:51:05,263 - functions.composite_checks - INFO - PS_ID column successfuly added to the valid entries for reporting. PS_ID column of dtype: string - 161
+2025-07-21 12:51:05,263 - functions.composite_checks - INFO - Executing broker column successfuly added to the valid entries for reporting. Executing broker column of dtype: string - 173
+2025-07-21 12:51:05,264 - functions.composite_checks - INFO - Clearing firm column successfully added to the valid entried for reporting. Clearing firm column of dtype: string - 189

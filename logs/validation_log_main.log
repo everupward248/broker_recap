@@ -1,3 +1,2 @@
-2025-07-16 19:02:00,918 - __main__ - INFO - files read successfully - 22
-2025-07-16 19:02:00,943 - __main__ - INFO - Internal column successfully added to the valid entried for reporting. Internal column of dtype: string - 82
-2025-07-16 19:02:00,943 - __main__ - INFO - Clearing firm column successfully added to the valid entried for reporting. Clearing firm column of dtype: string - 91
+2025-07-21 12:51:05,232 - __main__ - INFO - files read successfully - 22
+2025-07-21 12:51:05,264 - __main__ - INFO - Internal column successfully added to the valid entried for reporting. Internal column of dtype: string - 82

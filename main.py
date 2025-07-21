@@ -71,26 +71,8 @@ valid_report = cc.add_trade_price(valid_report, valid_df)
 valid_report = cc.add_identifier(valid_report, valid_df)
 valid_report = cc.add_psid(valid_report, valid_df)
 valid_report = cc.add_executing_broker(valid_report, valid_df)
-
-
-# add internal
-try:
-    valid_report['Internal'] = valid_df['Broker_Name'].values
-    valid_report['Internal'] = valid_report['Internal'] + " " + valid_report['Source'] 
-    valid_report['Internal'].astype('string')
-    data_type = valid_report['Internal'].dtype
-    logger.info(f"Internal column successfully added to the valid entried for reporting. Internal column of dtype: {data_type}")
-except:
-    logger.warning(f"Internal column not successfuly added to final valid report") 
-
-# add clearing firm
-try:
-    valid_report['Clearing_Firm'] = valid_df['Counterparty_Name'].values
-    valid_report['Clearing_Firm'] = valid_report['Clearing_Firm'].astype('string')
-    data_type = valid_report['Clearing_Firm'].dtype
-    logger.info(f"Clearing firm column successfully added to the valid entried for reporting. Clearing firm column of dtype: {data_type}")
-except:
-    logger.warning(f"Clearing firm not successfuly added to final valid report") 
+valid_report = cc.add_internal(valid_report, valid_df)
+valid_report = cc.add_clearing_firm(valid_report, valid_df)
 
 # export the reports as excel worksheets to be emailed
 with pd.ExcelWriter('data/output.xlsx') as writer:  

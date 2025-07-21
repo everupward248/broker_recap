@@ -177,6 +177,32 @@ def add_executing_broker(valid_report, valid_df):
     return valid_report
 
 
+def add_internal(valid_report, valid_df):
+    try:
+        valid_report['Internal'] = valid_df['Broker_Name'].values
+        valid_report['Internal'] = valid_report['Internal'] + " " + valid_report['Source'] 
+        valid_report['Internal'].astype('string')
+        data_type = valid_report['Internal'].dtype
+        logger.info(f"Internal column successfully added to the valid entried for reporting. Internal column of dtype: {data_type}")
+    except:
+        logger.warning(f"Internal column not successfuly added to final valid report") 
+
+    return valid_report
+
+
+def add_clearing_firm(valid_report, valid_df):
+    # add clearing firm
+    try:
+        valid_report['Clearing_Firm'] = valid_df['Counterparty_Name'].values
+        valid_report['Clearing_Firm'] = valid_report['Clearing_Firm'].astype('string')
+        data_type = valid_report['Clearing_Firm'].dtype
+        logger.info(f"Clearing firm column successfully added to the valid entried for reporting. Clearing firm column of dtype: {data_type}")
+    except:
+        logger.warning(f"Clearing firm not successfuly added to final valid report") 
+
+    return valid_report
+
+
 
 
 
