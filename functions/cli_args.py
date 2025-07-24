@@ -15,8 +15,6 @@ def get_path() -> str:
 
 @click.command()
 def validate_report() -> pd.DataFrame:
-    # take the file path as an argument and then perform the validations
-    # type hint the input type which should be an excel file
     """ingest the daily broker recap and perform the validations"""
     broker_report = get_path()
     broker_report = broker_report.replace("\\", "/")
