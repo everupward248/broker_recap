@@ -9,16 +9,13 @@ def get_path() -> str:
             broker_report = input("What is your file path: ")
             return broker_report
         except Exception as e:
-            sys.exit(e)
-        except EOFError:
-            sys.exit("script exited")
-
+            print(type(e))
+ 
 @click.command()
-def validate_report() -> pd.DataFrame:
+def validate_report():
     """ingest the daily broker recap and perform the validations"""
     broker_report = get_path()
     broker_report = broker_report.replace("\\", "/")
-    print(broker_report)
 
     if not os.path.exists(broker_report):
         raise FileNotFoundError("Please ensure that you are providing a path to an existing broker report")
@@ -29,6 +26,8 @@ def validate_report() -> pd.DataFrame:
             click.echo("the broker report has been successfully ingested and ready for validation")
             return recap_df
         except Exception as e:
-            sys.exit(e)
+            print(e)
 
 
+# add the rest of the logic for validating the report in this function as it will need to be executed from within
+# the click command based on how click handles return values
