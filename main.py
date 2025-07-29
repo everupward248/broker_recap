@@ -63,7 +63,7 @@ def main():
     validation_df = vl.valid_instrument(validation_df)
     validation_df = vl.valid_broker(validation_df, broker_df)
 
-    print(validation_df)
+    
 
     ##################################################################################################################################################################
     # # separate the datasets into the valid and invalid datasets for reporting.

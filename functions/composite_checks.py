@@ -202,6 +202,31 @@ def add_clearing_firm(valid_report, valid_df):
 
     return valid_report
 
+def perform_all_composite_checks(validation_df):
+     # # separate the datasets into the valid and invalid datasets for reporting.
+
+    valid_df, invalid_df = separate_datasets(validation_df)
+
+    ###############################################################################################################################################################
+    # Format the valid dataset before sending for reporting
+    valid_report = default_values(valid_df)
+    valid_report = add_date(valid_report, valid_df)
+    valid_report = add_account(valid_report, valid_df)
+    valid_report = add_quantity(valid_report, valid_df)
+    valid_report = add_trade_price(valid_report, valid_df)
+    valid_report = add_identifier(valid_report, valid_df)
+    valid_report = add_psid(valid_report, valid_df)
+    valid_report = add_executing_broker(valid_report, valid_df)
+    valid_report = add_internal(valid_report, valid_df)
+    valid_report = add_clearing_firm(valid_report, valid_df)
+
+    # export the reports as excel worksheets to be emailed
+    with pd.ExcelWriter('data/output.xlsx') as writer:  
+        valid_report.to_excel(writer, sheet_name='valid_report', index=False)
+        invalid_df.to_excel(writer, sheet_name='invalid_report', index=False)
+
+    return True
+
 
 
 

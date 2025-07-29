@@ -7,6 +7,26 @@ from pandas.api.types import is_numeric_dtype, is_number
 
 logger = get_logger(__name__)
 
+
+def invalid_data(recap_df):
+    """add invalid rows to the dataset to ensure validations are being performed properly"""
+    
+    invalid_df = pd.DataFrame([
+        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': 9000, 'exec_price': 20, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 200, 'F/C/P': "C", 'executing_broker': "APD"}, 
+        {'date': dt.datetime(2026, 1, 1), 'account': "yada", 'bloomberg_ticker': "AAPL", 'quantity': 11000, 'exec_price': 16.5, 'bloomberg_contract_code': "YODELING", 'contract_mth': "J", 'contract_yr': 2024, 'strike': 'foo', 'F/C/P': "asdkhjasjk", 'executing_broker': 1000}, 
+        {'date': "abc", 'account': 1, 'bloomberg_ticker': "GOOGL", 'quantity': "abc", 'exec_price': "abc", 'bloomberg_contract_code': "SB", 'contract_mth': 1000, 'contract_yr': "sfasdfsdfs", 'strike': 0, 'F/C/P': 12301, 'executing_broker': "invalid_code"},
+        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': -8500, 'exec_price': 40, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 1000, 'F/C/P': "P", 'executing_broker': "APD"},
+        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': -8500, 'exec_price': 40, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': " ", 'F/C/P': "F", 'executing_broker': "APD"}
+    ]
+    ) 
+
+    # Concatenate the invalid rows to the recap
+    recap_df = pd.concat([recap_df, invalid_df], ignore_index=True)
+    logger.info("Invalid data added for testing purposes")
+    
+    return recap_df
+
+
 def valid_date(df):
     # checks that date has valid dtype and not a date in the future
     current_date = pd.Timestamp.now()
@@ -245,6 +265,25 @@ def valid_broker(validation_df, broker_df):
     else:
         logger.info("Executing broker validation passed.")
 
+    return validation_df
+
+def perform_all_validations(recap_df, broker_df, contract_df, valid_acct_df):
+    """runs all validation functions contained in the validation_logic module"""
+
+     # create a copy of the recap to append boolean checks to
+    validation_df = recap_df.copy()
+
+    validation_df = valid_date(validation_df)
+    validation_df = valid_account(validation_df, valid_acct_df)
+    validation_df = valid_quantity(validation_df)
+    validation_df = valid_execution_price(validation_df)
+    validation_df = valid_bbg(validation_df, contract_df)
+    validation_df = valid_month(validation_df)
+    validation_df = valid_year(validation_df)
+    validation_df = valid_strike_price(validation_df)
+    validation_df = valid_instrument(validation_df)
+    validation_df = valid_broker(validation_df, broker_df)
+    
     return validation_df
 
 
