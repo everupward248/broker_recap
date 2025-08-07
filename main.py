@@ -13,7 +13,8 @@ logger = get_logger(__name__)
 
 @click.group()
 def cli() -> None:
-    print("cli is working...")
+    print("cli is intiated...")
+    print("This app is used to validate broker recaps and to create email drafts to relevant broker for invalid entries")
 
 cli.add_command(cli_args.validate_report)
 
