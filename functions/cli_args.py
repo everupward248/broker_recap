@@ -22,13 +22,15 @@ def get_path():
             broker_report = Path(broker_report)
             valid_dir(broker_report)
             invalid_dir(broker_report)
+            dir_path = broker_report
 
             # store all the files in the directory in a list to iterate over
             broker_report = [file for file in broker_report.iterdir() if file.is_file()]
             
-            return broker_report
+            return broker_report, dir_path
         except Exception as e:
             print(type(e))
+            
 
 def default_files():
     directory = DEFAULT_PATH
@@ -36,11 +38,13 @@ def default_files():
     directory = Path(directory)
     valid_dir(directory)
     invalid_dir(directory)
+    dir_path = directory
+
     
     # store all the files in the directory in a list to iterate over
     file_paths = [file for file in directory.iterdir() if file.is_file()]
     
-    return file_paths
+    return file_paths, dir_path
  
 
 @click.command()
@@ -49,9 +53,9 @@ def default_files():
 def validate_report(default, custom):
     """ingest the daily broker recap and perform the validations"""
     if default:
-        broker_report = default_files()
+        broker_report, dir_path = default_files()
     elif custom:
-        broker_report = get_path()
+        broker_report, dir_path = get_path()
     else:
         sys.exit("Must select an option for the broker recap file path")
 
@@ -70,10 +74,10 @@ def validate_report(default, custom):
                     recap_df, broker_df, contract_df, valid_acct_df = data_sets
                     recap_df = invalid_data(recap_df)
                     validation_df = perform_all_validations(recap_df, broker_df, contract_df, valid_acct_df)
-                    perform_all_composite_checks(validation_df)
+                    perform_all_composite_checks(validation_df, dir_path)
 
                     body_string = "This is a test to send an email with attachments for reporting. SSL used for the SMTP server connection."
-                    send_email('data/output.xlsx', 'logs/validation_log_main.log', body_string)
+                    # send_email('data/output.xlsx', 'logs/validation_log_main.log', body_string)
                 else:
                     logger.warning("the required data has not been properly converted into pandas dataframes")
                     

@@ -1,66 +1,66 @@
-2025-08-10 12:42:12,891 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
-2025-08-10 12:42:12,892 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
-2025-08-10 12:42:12,893 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
-2025-08-10 12:42:12,893 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
-2025-08-10 12:42:12,893 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
-2025-08-10 12:42:12,894 - functions.validation_logic - WARNING - Quantity data type invalid - 87
-2025-08-10 12:42:12,895 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
-2025-08-10 12:42:12,895 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
-2025-08-10 12:42:12,895 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
-2025-08-10 12:42:12,895 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
-2025-08-10 12:42:12,895 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
-2025-08-10 12:42:12,896 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
-2025-08-10 12:42:12,896 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
-2025-08-10 12:42:12,896 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
-2025-08-10 12:42:12,896 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
-2025-08-10 12:42:12,897 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
-2025-08-10 12:42:12,897 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
-2025-08-10 12:42:12,897 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
-2025-08-10 12:42:12,898 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
-2025-08-10 12:42:12,898 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
-2025-08-10 12:42:12,898 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
-2025-08-10 12:42:12,899 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264
-2025-08-10 12:42:14,481 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
-2025-08-10 12:42:14,482 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
-2025-08-10 12:42:14,482 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
-2025-08-10 12:42:14,483 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
-2025-08-10 12:42:14,483 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
-2025-08-10 12:42:14,484 - functions.validation_logic - WARNING - Quantity data type invalid - 87
-2025-08-10 12:42:14,484 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
-2025-08-10 12:42:14,484 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
-2025-08-10 12:42:14,484 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
-2025-08-10 12:42:14,485 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
-2025-08-10 12:42:14,485 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
-2025-08-10 12:42:14,485 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
-2025-08-10 12:42:14,485 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
-2025-08-10 12:42:14,485 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
-2025-08-10 12:42:14,486 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
-2025-08-10 12:42:14,486 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
-2025-08-10 12:42:14,486 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
-2025-08-10 12:42:14,487 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
-2025-08-10 12:42:14,487 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
-2025-08-10 12:42:14,487 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
-2025-08-10 12:42:14,487 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
-2025-08-10 12:42:14,488 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264
-2025-08-10 12:42:15,896 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
-2025-08-10 12:42:15,897 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
-2025-08-10 12:42:15,897 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
-2025-08-10 12:42:15,898 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
-2025-08-10 12:42:15,898 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
-2025-08-10 12:42:15,899 - functions.validation_logic - WARNING - Quantity data type invalid - 87
-2025-08-10 12:42:15,899 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
-2025-08-10 12:42:15,899 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
-2025-08-10 12:42:15,899 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
-2025-08-10 12:42:15,900 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
-2025-08-10 12:42:15,900 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
-2025-08-10 12:42:15,900 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
-2025-08-10 12:42:15,900 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
-2025-08-10 12:42:15,901 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
-2025-08-10 12:42:15,901 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
-2025-08-10 12:42:15,901 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
-2025-08-10 12:42:15,901 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
-2025-08-10 12:42:15,902 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
-2025-08-10 12:42:15,902 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
-2025-08-10 12:42:15,902 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
-2025-08-10 12:42:15,902 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
-2025-08-10 12:42:15,903 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264
+2025-08-10 13:22:50,021 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
+2025-08-10 13:22:50,022 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
+2025-08-10 13:22:50,023 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
+2025-08-10 13:22:50,023 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
+2025-08-10 13:22:50,023 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
+2025-08-10 13:22:50,024 - functions.validation_logic - WARNING - Quantity data type invalid - 87
+2025-08-10 13:22:50,025 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
+2025-08-10 13:22:50,025 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
+2025-08-10 13:22:50,025 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
+2025-08-10 13:22:50,026 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
+2025-08-10 13:22:50,026 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
+2025-08-10 13:22:50,026 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
+2025-08-10 13:22:50,026 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
+2025-08-10 13:22:50,026 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
+2025-08-10 13:22:50,027 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
+2025-08-10 13:22:50,027 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
+2025-08-10 13:22:50,027 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
+2025-08-10 13:22:50,027 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
+2025-08-10 13:22:50,028 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
+2025-08-10 13:22:50,028 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
+2025-08-10 13:22:50,028 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
+2025-08-10 13:22:50,029 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264
+2025-08-10 13:22:50,096 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
+2025-08-10 13:22:50,096 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
+2025-08-10 13:22:50,097 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
+2025-08-10 13:22:50,097 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
+2025-08-10 13:22:50,097 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
+2025-08-10 13:22:50,098 - functions.validation_logic - WARNING - Quantity data type invalid - 87
+2025-08-10 13:22:50,098 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
+2025-08-10 13:22:50,098 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
+2025-08-10 13:22:50,099 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
+2025-08-10 13:22:50,099 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
+2025-08-10 13:22:50,099 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
+2025-08-10 13:22:50,099 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
+2025-08-10 13:22:50,100 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
+2025-08-10 13:22:50,100 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
+2025-08-10 13:22:50,100 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
+2025-08-10 13:22:50,100 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
+2025-08-10 13:22:50,101 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
+2025-08-10 13:22:50,101 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
+2025-08-10 13:22:50,101 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
+2025-08-10 13:22:50,102 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
+2025-08-10 13:22:50,102 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
+2025-08-10 13:22:50,103 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264
+2025-08-10 13:22:50,166 - functions.validation_logic - INFO - Invalid data added for testing purposes - 25
+2025-08-10 13:22:50,166 - functions.validation_logic - INFO - Data types are equal for date comparison. - 37
+2025-08-10 13:22:50,167 - functions.validation_logic - WARNING - Invalid dates detected in broker recap - 45
+2025-08-10 13:22:50,167 - functions.validation_logic - WARNING - Account codes not stored as strings. Data type converted to string - 59
+2025-08-10 13:22:50,167 - functions.validation_logic - INFO - Data types are equal for account code comparison. - 65
+2025-08-10 13:22:50,168 - functions.validation_logic - WARNING - Quantity data type invalid - 87
+2025-08-10 13:22:50,168 - functions.validation_logic - WARNING - Invalid quantities detected in broker recap - 96
+2025-08-10 13:22:50,168 - functions.validation_logic - WARNING - Execution price data type invalid: object. Execution price data type converted to object - 108
+2025-08-10 13:22:50,168 - functions.validation_logic - WARNING - Invalid execution prices detected in broker recap - 116
+2025-08-10 13:22:50,169 - functions.validation_logic - WARNING - Bloomberg contract codes not stored as strings. Data type converted to string - 129
+2025-08-10 13:22:50,169 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 139
+2025-08-10 13:22:50,169 - functions.validation_logic - WARNING - Invalid bloomberg contract codes detected in broker recap - 144
+2025-08-10 13:22:50,169 - functions.validation_logic - WARNING - Contract month not stored as strings. Data type converted to string - 159
+2025-08-10 13:22:50,170 - functions.validation_logic - WARNING - Invalid contract months detected in broker recap - 167
+2025-08-10 13:22:50,170 - functions.validation_logic - WARNING - Contract year data type invalid: object - 183
+2025-08-10 13:22:50,170 - functions.validation_logic - WARNING - Invalid contract years detected in broker recap - 192
+2025-08-10 13:22:50,170 - functions.validation_logic - WARNING - Strike price data type invalid: object - 206
+2025-08-10 13:22:50,171 - functions.validation_logic - WARNING - Invalid strike price detected in broker recap - 215
+2025-08-10 13:22:50,171 - functions.validation_logic - WARNING - Invalid contract code detected in broker recap - 226
+2025-08-10 13:22:50,171 - functions.validation_logic - WARNING - Executing broker codes not stored as strings. Data type converted to string & string - 240
+2025-08-10 13:22:50,171 - functions.validation_logic - INFO - Data types are equal for bloomberg contract code comparison. - 250
+2025-08-10 13:22:50,172 - functions.validation_logic - WARNING - Invalid executing broker detected in broker recap - 264

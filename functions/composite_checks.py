@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 import functions.helper_functions as func
 from .logger_setup import get_logger
+from datetime import date
+from pathlib import Path
+import sys
 
 logger = get_logger(__name__)
 
@@ -202,12 +205,24 @@ def add_clearing_firm(valid_report, valid_df):
 
     return valid_report
 
-def perform_all_composite_checks(validation_df):
-     # # separate the datasets into the valid and invalid datasets for reporting.
-
+def perform_all_composite_checks(validation_df, dir_path):
+    # separate the datasets into the valid and invalid datasets for reporting.
     valid_df, invalid_df = separate_datasets(validation_df)
 
-    ###############################################################################################################################################################
+    # create the destination path for the valid and invalid entries
+    # for creating the string to name the dir
+    today = date.today()
+
+    if (dir_path / f"valid_entries_{today}").is_dir():
+        valid_dir_path = (dir_path / f"valid_entries_{today}" / "output.xlsx")
+    else:
+        sys.exit("There is no destination in the provided directory for valid entries")
+
+    if (dir_path / f"invalid_entries_{today}").is_dir():
+        invalid_dir_path = (dir_path / f"invalid_entries_{today}" / "output.xlsx")
+    else:
+        sys.exit("There is no destination in the provided directory for invalid entries")
+
     # Format the valid dataset before sending for reporting
     valid_report = default_values(valid_df)
     valid_report = add_date(valid_report, valid_df)
@@ -221,9 +236,12 @@ def perform_all_composite_checks(validation_df):
     valid_report = add_clearing_firm(valid_report, valid_df)
 
     # export the reports as excel worksheets to be emailed
-    with pd.ExcelWriter('data/output.xlsx') as writer:  
+    with pd.ExcelWriter(valid_dir_path) as writer:  
         valid_report.to_excel(writer, sheet_name='valid_report', index=False)
-        invalid_df.to_excel(writer, sheet_name='invalid_report', index=False)
+
+    with pd.ExcelWriter(invalid_dir_path) as invalid_writer:
+        invalid_df.to_excel(invalid_writer, sheet_name='invalid_report', index=False)
+
 
     return True
 

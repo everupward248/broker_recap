@@ -3,6 +3,7 @@ from .logger_setup import get_logger
 from pathlib import Path
 from datetime import date
 import sys
+from pathlib import Path
 
 
 logger = get_logger(__name__)
@@ -61,4 +62,8 @@ def invalid_dir(path):
                        print("directory for valid entries successfuly created\n")
                 except FileExistsError as e:
                        print(e)
-                       
+
+# get the paths for the valid and invalid dirs so that it can be passed to the composite checks as the destination for the files created
+def get_validation_dirs(path):
+       """returns the paths for the validations to be used as the destination for valid and invalid entries"""
+       
