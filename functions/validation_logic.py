@@ -12,10 +12,10 @@ def invalid_data(recap_df):
     """add invalid rows to the dataset to ensure validations are being performed properly"""
     
     invalid_df = pd.DataFrame([
-        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': 9000, 'exec_price': 20, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 200, 'F/C/P': "C", 'executing_broker': "APD"}, 
+        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': 9000, 'exec_price': 20, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 200, 'F/C/P': "C", 'executing_broker': "SUC"}, 
         {'date': dt.datetime(2026, 1, 1), 'account': "yada", 'bloomberg_ticker': "AAPL", 'quantity': 11000, 'exec_price': 16.5, 'bloomberg_contract_code': "YODELING", 'contract_mth': "J", 'contract_yr': 2024, 'strike': 'foo', 'F/C/P': "asdkhjasjk", 'executing_broker': 1000}, 
         {'date': "abc", 'account': 1, 'bloomberg_ticker': "GOOGL", 'quantity': "abc", 'exec_price': "abc", 'bloomberg_contract_code': "SB", 'contract_mth': 1000, 'contract_yr': "sfasdfsdfs", 'strike': 0, 'F/C/P': 12301, 'executing_broker': "invalid_code"},
-        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': -8500, 'exec_price': 40, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 1000, 'F/C/P': "P", 'executing_broker': "APD"},
+        {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': -8500, 'exec_price': 40, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': 1000, 'F/C/P': "P", 'executing_broker': "IBX"},
         {'date': dt.datetime(2024, 1, 1), 'account': "0PSS1", 'bloomberg_ticker': "NVDA", 'quantity': -8500, 'exec_price': 40, 'bloomberg_contract_code': "SB", 'contract_mth': "F", 'contract_yr': 2027, 'strike': " ", 'F/C/P': "F", 'executing_broker': "APD"}
     ]
     ) 

@@ -40,7 +40,7 @@ def valid_dir(path):
                 try:
                        valid_entries = Path(path / f"valid_entries_{today}")
                        valid_entries.mkdir()
-                       print("directory for valid entries successfuly created\n")
+                       print("\ndirectory for valid entries successfuly created\n")
                 except FileExistsError as e:
                        print(e)
                        
@@ -59,11 +59,6 @@ def invalid_dir(path):
                 try:
                        invalid_entries = Path(path / f"invalid_entries_{today}")
                        invalid_entries.mkdir()
-                       print("directory for valid entries successfuly created\n")
+                       print("directory for invalid entries successfuly created\n")
                 except FileExistsError as e:
                        print(e)
-
-# get the paths for the valid and invalid dirs so that it can be passed to the composite checks as the destination for the files created
-def get_validation_dirs(path):
-       """returns the paths for the validations to be used as the destination for valid and invalid entries"""
-       

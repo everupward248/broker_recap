@@ -206,6 +206,9 @@ def add_clearing_firm(valid_report, valid_df):
     return valid_report
 
 def perform_all_composite_checks(validation_df, dir_path):
+    # extract the name of the executing broker
+    executing_broker = validation_df["executing_broker"][0] 
+
     # separate the datasets into the valid and invalid datasets for reporting.
     valid_df, invalid_df = separate_datasets(validation_df)
 
@@ -214,12 +217,12 @@ def perform_all_composite_checks(validation_df, dir_path):
     today = date.today()
 
     if (dir_path / f"valid_entries_{today}").is_dir():
-        valid_dir_path = (dir_path / f"valid_entries_{today}" / "output.xlsx")
+        valid_dir_path = (dir_path / f"valid_entries_{today}" / f"valid_entries_{executing_broker}.xlsx")
     else:
         sys.exit("There is no destination in the provided directory for valid entries")
 
     if (dir_path / f"invalid_entries_{today}").is_dir():
-        invalid_dir_path = (dir_path / f"invalid_entries_{today}" / "output.xlsx")
+        invalid_dir_path = (dir_path / f"invalid_entries_{today}" / f"invalid_entries_{executing_broker}.xlsx")
     else:
         sys.exit("There is no destination in the provided directory for invalid entries")
 
@@ -236,7 +239,7 @@ def perform_all_composite_checks(validation_df, dir_path):
     valid_report = add_clearing_firm(valid_report, valid_df)
 
     # export the reports as excel worksheets to be emailed
-    with pd.ExcelWriter(valid_dir_path) as writer:  
+    with pd.ExcelWriter(valid_dir_path) as writer: 
         valid_report.to_excel(writer, sheet_name='valid_report', index=False)
 
     with pd.ExcelWriter(invalid_dir_path) as invalid_writer:

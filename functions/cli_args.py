@@ -65,13 +65,14 @@ def validate_report(default, custom):
         else:
             try:
                 broker_report = os.path.abspath(file)
-                click.echo("the broker report has been successfully ingested and ready for validation")
-                # replace this with a different call which performs all the logic
                 data_sets = file_ingestion(broker_report)
+                click.echo("the broker report has been successfully ingested and ready for validation")
                 
                 if data_sets != None:
                     logger.info("Data sets have been converted into pandas dataframes")
                     recap_df, broker_df, contract_df, valid_acct_df = data_sets
+                    exec_broker = recap_df["executing_broker"][0]
+                    print(f"now performing the data validation for broker: {exec_broker}\n")
                     recap_df = invalid_data(recap_df)
                     validation_df = perform_all_validations(recap_df, broker_df, contract_df, valid_acct_df)
                     perform_all_composite_checks(validation_df, dir_path)
