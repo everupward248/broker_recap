@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import sys
 from pathlib import Path
-from .import_files import file_ingestion
+from .file_functions import file_ingestion, valid_dir
 from .logger_setup import get_logger
 from .validation_logic import *
 from .composite_checks import *
@@ -49,6 +49,7 @@ def validate_report(default, custom):
     elif custom:
         broker_report = get_path()
     else:
+        valid_dir(DEFAULT_PATH)
         sys.exit("Must select an option for the broker recap file path")
 
     for file in broker_report:
