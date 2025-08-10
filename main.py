@@ -17,6 +17,7 @@ def cli() -> None:
     print("This app is used to validate broker recaps and to create email drafts to relevant broker for invalid entries\n")
 
 cli.add_command(cli_args.validate_report)
+cli.add_command(cli_args.consolidate_valid)
 
 def main():
     cli()

@@ -17,7 +17,7 @@ DEFAULT_PATH = "C:\\Users\\johnj\\OneDrive\\Documents\\programming\\projects\\po
 def get_path():
     while True:
         try:
-            broker_report = input("What is your file path: ")
+            broker_report = input("What is your file path: ").strip()
             broker_report = broker_report.replace("\\", "/")
             broker_report = Path(broker_report)
             valid_dir(broker_report)
@@ -85,4 +85,34 @@ def validate_report(default, custom):
             except Exception as e:
                 click.echo(e)
 
+# consolidate all valid reports
+@click.command
+@click.option("--default", is_flag=True, help="use the default file path")
+@click.option("--custom", is_flag=True, help="select a different file path")
+def consolidate_valid(default, custom):
+    """consolidates all reports in a specified directory"""
+    if default:
+        directory = DEFAULT_PATH
+        directory = DEFAULT_PATH.replace("\\", "/")
+        directory = Path(directory)
+
+    elif custom:
+        try:
+            while True:
+                directory = input("What is your file path: ").strip()
+                directory = directory.replace("\\", "/")
+                directory = Path(directory)
+
+                if not directory.is_dir():
+                    click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                    continue
+                else:
+                    break
+        except Exception as e:
+            print(e)
+    else:
+        sys.exit("Must provide an option. Plese use '--help' to view options\n")
+
+    # TODO: now that the directory is established, add the logic for consolidating all xlxs files in the dir into one valid report
+    
 
