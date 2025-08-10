@@ -34,14 +34,31 @@ def valid_dir(path):
         today = date.today()
 
         if (path / f"valid_entries_{today}").is_dir():
-                print("valid dir exists")
+                print("valid dir exists\n")
         else:
                 try:
                        valid_entries = Path(path / f"valid_entries_{today}")
                        valid_entries.mkdir()
-                       print("directory for valid entries successfuly created")
+                       print("directory for valid entries successfuly created\n")
                 except FileExistsError as e:
                        print(e)
                        
 
 # the broker recaps are on a per broker basis and therefore separate directories need to be created for each broker's invalid entries
+def invalid_dir(path):
+        """Takes the file path for the broker recaps and creates a directory for all invalid entries per broker if does not exist already"""
+        path = Path(path)
+
+        # for creating the string to name the dir
+        today = date.today()
+
+        if (path / f"invalid_entries_{today}").is_dir():
+                print("invalid dir exists\n")
+        else:
+                try:
+                       invalid_entries = Path(path / f"invalid_entries_{today}")
+                       invalid_entries.mkdir()
+                       print("directory for valid entries successfuly created\n")
+                except FileExistsError as e:
+                       print(e)
+                       

@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import sys
 from pathlib import Path
-from .file_functions import file_ingestion, valid_dir
+from .file_functions import file_ingestion, valid_dir, invalid_dir
 from .logger_setup import get_logger
 from .validation_logic import *
 from .composite_checks import *
@@ -20,6 +20,8 @@ def get_path():
             broker_report = input("What is your file path: ")
             broker_report = broker_report.replace("\\", "/")
             broker_report = Path(broker_report)
+            valid_dir(broker_report)
+            invalid_dir(broker_report)
 
             # store all the files in the directory in a list to iterate over
             broker_report = [file for file in broker_report.iterdir() if file.is_file()]
@@ -32,6 +34,8 @@ def default_files():
     directory = DEFAULT_PATH
     directory = DEFAULT_PATH.replace("\\", "/")
     directory = Path(directory)
+    valid_dir(directory)
+    invalid_dir(directory)
     
     # store all the files in the directory in a list to iterate over
     file_paths = [file for file in directory.iterdir() if file.is_file()]
@@ -49,7 +53,6 @@ def validate_report(default, custom):
     elif custom:
         broker_report = get_path()
     else:
-        valid_dir(DEFAULT_PATH)
         sys.exit("Must select an option for the broker recap file path")
 
     for file in broker_report:
