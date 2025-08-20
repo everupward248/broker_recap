@@ -62,3 +62,27 @@ def invalid_dir(path):
                        print("directory for invalid entries successfuly created\n")
                 except FileExistsError as e:
                        print(e)
+
+
+# concatination of valid_broker_reports into one file
+def concat_valid_reports(directory: Path) -> None:
+    """
+    logic for consolidating all xlxs files in the dir into one valid report using pandas.concat()
+    """
+    # construct list of all valid_reports in the provided path
+    today = date.today()
+    valid_entries = directory / f"valid_entries_{today}"
+
+    valid_reports = [file for file in valid_entries.iterdir() if file.is_file()]
+    df_list = [pd.read_excel(report) for report in valid_reports]
+
+        
+    final_df = pd.concat(df_list, ignore_index=True)
+    final_df.to_excel(valid_entries / f"valid_broker_report_{today}.xlsx", index=False)
+
+
+
+               
+
+
+
