@@ -104,14 +104,13 @@ def consolidate_valid(default, custom):
                 directory = directory.replace("\\", "/")
                 directory = Path(directory)
                 logger.info(F"Default file path provided: {directory}")
-
-                concat_valid_reports(directory)
                 
                 if not directory.is_dir():
                     click.echo("Path provided is not a directory. Please provide a valid directory.\n")
                     continue
                 else:
                     break
+            concat_valid_reports(directory)
         except Exception as e:
             print(e)
     else:

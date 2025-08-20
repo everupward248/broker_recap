@@ -73,10 +73,19 @@ def concat_valid_reports(directory: Path) -> None:
     today = date.today()
     valid_entries = directory / f"valid_entries_{today}"
 
-    valid_reports = [file for file in valid_entries.iterdir() if file.is_file()]
-    df_list = [pd.read_excel(report) for report in valid_reports]
-
-        
+    try:
+        valid_reports = [file for file in valid_entries.iterdir() if file.is_file()]
+    except Exception as e:
+           logger.warning(e)
+           print(e)
+    
+    try:
+        # only files which end in the "xlsx" extension will be consolidated
+        df_list = [pd.read_excel(report) for report in valid_reports if str(report).endswith("xlsx")]
+    except Exception as e:
+           logger.warning(e)
+           print(e)
+           
     final_df = pd.concat(df_list, ignore_index=True)
     final_df.to_excel(valid_entries / f"valid_broker_report_{today}.xlsx", index=False)
 
