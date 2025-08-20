@@ -16,7 +16,7 @@ def create_email_draft(recipient, subject, body, attachments=None):
         print(e)
 
     mail = outlook.CreateItem(0)
-
+    mail.Display()
     mail.To = recipient
     mail.Subject = subject
     mail.Body = body
