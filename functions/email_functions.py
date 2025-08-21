@@ -17,11 +17,9 @@ def create_email_draft(recipient: str, subject: str, body: str, attachments=None
         print(e)
 
     mail = outlook.CreateItem(0)
-    mail.Display()
     mail.To = recipient
     mail.Subject = subject
     mail.Body = body
-    mail.Display()
    
 
     if attachments:
@@ -32,6 +30,7 @@ def create_email_draft(recipient: str, subject: str, body: str, attachments=None
         print(f"Atthacment not found: {attachments}")
 
     mail.Save()
+    mail.Display()
     logger.info(f"Email draft created for: {recipient}")
     print(f"Email draft created for: {recipient}")
 
