@@ -3,11 +3,12 @@ import pandas as pd
 import os
 import sys
 from pathlib import Path
-from .file_functions import file_ingestion, valid_dir, invalid_dir, concat_valid_reports
+from .file_functions import file_ingestion, valid_dir, invalid_dir, concat_valid_reports, invalid_directory_for_email
 from .logger_setup import get_logger
 from .validation_logic import *
 from .composite_checks import *
 from .helper_functions import *
+from .email_functions import test_email, create_email_draft
 
 
 logger = get_logger(__name__)
@@ -116,6 +117,44 @@ def consolidate_valid(default, custom):
     else:
         sys.exit("Must provide an option. Plese use '--help' to view options\n")
 
-   
-    
 
+# creates email drafts for all invalid reports
+@click.command
+@click.option("--default", is_flag=True, help="use the default file path")
+@click.option("--custom", is_flag=True, help="select a different file path")
+@click.option("--test", is_flag=True, help="create a test email draft to ensure proper functioning")
+def email_draft(default, custom, test):
+    """
+    creates email drafts per broker for all invalid broker reports
+    """
+    if test:
+        try:
+            while True:
+                attachment = input("Please provide the excel attachment: ").strip()
+                attachment = attachment.replace("\\", "/")
+                attachment = Path(attachment)
+                logger.info(f"Excel attachment provided: {attachment}")
+
+                if not attachment.is_file():
+                    click.echo("Please provide a valid excel file\n")
+                    continue
+                else:
+                    break 
+            test_email(attachment)    
+        except EOFError:
+            sys.exit("Program exited...")
+
+    elif default:
+        directory = DEFAULT_PATH
+        directory = DEFAULT_PATH.replace("\\", "/")
+        directory = Path(directory)
+        logger.info(F"Default file path provided: {DEFAULT_PATH}")
+        invalid_broker_file_path = invalid_directory_for_email(directory)
+        
+        for file in invalid_broker_file_path:
+            body_string = "testing the default flag for email draft command"
+            parameters = ["tester_email@test.com", "Test default", body_string, file]
+            create_email_draft(*parameters)
+
+# TODO: merge each invalid report with the broker codes to take the first email where the exec broker check did not fail
+# do a set() check to abort drafts that have more than 1 unique broker code entry

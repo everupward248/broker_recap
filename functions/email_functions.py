@@ -4,10 +4,11 @@ from .logger_setup import get_logger
 
 logger = get_logger(__name__)
 
-
-# This is an outdated version which only works with outlook classic
-def create_email_draft(recipient, subject, body, attachments=None):
+def create_email_draft(recipient: str, subject: str, body: str, attachments=None) -> None:
     # launch outlook so that can be interfaced with by python
+    """
+    Creates an email draft with the provded recipient, subject, body, and invalid broker attachment
+    """
     try:
         outlook = win32com.client.Dispatch("Outlook.Application")
         logger.info("outlook launched")
@@ -20,26 +21,28 @@ def create_email_draft(recipient, subject, body, attachments=None):
     mail.To = recipient
     mail.Subject = subject
     mail.Body = body
+    mail.Display()
+   
 
     if attachments:
-        for file_path in attachments:
-            file = Path(file_path)
-            if file.exists():
-                mail.Attachments.Add(str(file))
-            else:
-                print(f"Atthacment not found: {file}")
+        # win32com.client expects attachments as plain string paths and cannot accept python Path objects as argument
+        mail.Attachments.Add(str(attachments))
+    else:
+        logger.warning(f"Atthacment not found: {attachments}")
+        print(f"Atthacment not found: {attachments}")
 
     mail.Save()
+    logger.info(f"Email draft created for: {recipient}")
     print(f"Email draft created for: {recipient}")
 
 
-def main():
+def test_email(attachment=None):
    create_email_draft(
-        recipient="everupward248@gmail.com",
+        recipient="tester_email@test.com",
         subject="TESTING",
-        body="This is a tester email #5"
+        body="This is a email draft used for testing purposes", 
+        attachments=attachment
     )
 
-
 if __name__ == "__main__":
-    main()
+    test_email()

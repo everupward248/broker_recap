@@ -88,6 +88,24 @@ def concat_valid_reports(directory: Path) -> None:
            
     final_df = pd.concat(df_list, ignore_index=True)
     final_df.to_excel(valid_entries / f"valid_broker_report_{today}.xlsx", index=False)
+    logger.info("Valid entries for the day have been consolidated into one report")
+    print("Valid entries for the day have been consolidated into one report")
+
+# provides the directory for the invalid entries to be passed as attachements into the email drafts
+def invalid_directory_for_email(directory: Path) -> list[Path]:
+       """
+       Takes the path of where the invalid broker reports are stored and then returns a list of path objects that can be iterated over when constructing the email drafts
+       """
+       today = date.today()
+       invalid_entries = directory / f"invalid_entries_{today}"
+
+       try: 
+        invalid_reports = [file for file in invalid_entries.iterdir() if file.is_file()]
+       except FileNotFoundError:
+              logger.warning("Please ensure that the validations have been run for the day as the program cannot find the ivnalid entries made for the day")
+              sys.exit("Please ensure that the validations have been run for the day as the program cannot find the ivnalid entries made for the day")
+       logger.info(f"Invalid entries have been compiled into a list for iteration at the provided path: {directory}")
+       return invalid_reports
 
 
 

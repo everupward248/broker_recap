@@ -18,6 +18,7 @@ def cli() -> None:
 
 cli.add_command(cli_args.validate_report)
 cli.add_command(cli_args.consolidate_valid)
+cli.add_command(cli_args.email_draft)
 
 def main():
     cli()
