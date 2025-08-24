@@ -1,6 +1,7 @@
 from pathlib import Path
 import win32com.client
 from .logger_setup import get_logger
+import pandas as pd
 
 logger = get_logger(__name__)
 
@@ -42,6 +43,25 @@ def test_email(attachment=None):
         body="This is a email draft used for testing purposes", 
         attachments=attachment
     )
+   
+def obtain_email_address(file) -> str:
+    """
+    obtains the first valid email address from the invalid report to pass as the email recipient
+    """
+    file = pd.read_excel(file)
+    # drop the NaNs for the column
+    unique_emails = file["Broker_Email"].dropna()
+    unique_emails = set(unique_emails)
+
+    # there should only be one valid email address per report, if there are multiple this means the broker provided multiple unique broker codes
+    if len(unique_emails) != 1:
+        logger.warning(f"There are multiple valid email addressess in the provided report. Please review and ensure that the report is sent to the correct party: {unique_emails}")
+        return "WARNING! PLEASE REVIEW BROKER_EMAILS COLUMN"
+    email_address = next(iter(unique_emails)) 
+    logger.info(f"Email address successfully extracted and being sent to: {email_address}")
+    return email_address
+
+    
 
 if __name__ == "__main__":
     test_email()

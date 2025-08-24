@@ -8,7 +8,7 @@ from .logger_setup import get_logger
 from .validation_logic import *
 from .composite_checks import *
 from .helper_functions import *
-from .email_functions import test_email, create_email_draft
+from .email_functions import test_email, create_email_draft, obtain_email_address
 
 
 logger = get_logger(__name__)
@@ -25,6 +25,7 @@ def get_path():
             if not broker_report.is_dir():
                 click.echo("Path provided is not a directory. Please provide a valid directory.\n")
                 continue
+            # this check is necessary as Path("") returns the current directory "."
             elif str(broker_report) == ".":
                 click.echo("Path provided is not a directory. Please provide a valid directory.\n")
                 continue
@@ -119,6 +120,10 @@ def consolidate_valid(default, custom):
                 if not directory.is_dir():
                     click.echo("Path provided is not a directory. Please provide a valid directory.\n")
                     continue
+                # this check is necessary as Path("") returns the current directory "."
+                elif str(directory) == ".":
+                    click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                    continue
                 else:
                     break
             concat_valid_reports(directory)
@@ -162,9 +167,11 @@ def email_draft(default, custom, test):
         invalid_broker_file_path = invalid_directory_for_email(directory)
         
         for file in invalid_broker_file_path:
+            recipient = obtain_email_address(file)
             body_string = "testing the default flag for email draft command"
-            parameters = ["tester_email@test.com", "Test default", body_string, file]
-            create_email_draft(*parameters)
+            subject = "Invalid Entries Detected in Daily Recap"
+            parameters = {"recipient": recipient, "subject": subject, "body": body_string, "attachments": file}
+            create_email_draft(**parameters)
 
 # TODO: merge each invalid report with the broker codes to take the first email where the exec broker check did not fail
 # do a set() check to abort drafts that have more than 1 unique broker code entry

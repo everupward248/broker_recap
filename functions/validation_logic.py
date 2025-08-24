@@ -254,7 +254,7 @@ def valid_broker(validation_df, broker_df):
 
     # add the broker names for the 'Internal' column for the final report
     validation_df = validation_df.merge(
-        broker_df[['Broker_Code', 'Broker_Name']],
+        broker_df[['Broker_Code', 'Broker_Name', 'Broker_Email']],
         how='left',
         left_on='executing_broker', 
         right_on='Broker_Code'
