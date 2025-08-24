@@ -21,6 +21,14 @@ def get_path():
             broker_report = input("What is your file path: ").strip()
             broker_report = broker_report.replace("\\", "/")
             broker_report = Path(broker_report)
+
+            if not broker_report.is_dir():
+                click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                continue
+            elif str(broker_report) == ".":
+                click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                continue
+
             valid_dir(broker_report)
             invalid_dir(broker_report)
             dir_path = broker_report
@@ -29,6 +37,8 @@ def get_path():
             broker_report = [file for file in broker_report.iterdir() if file.is_file()]
             
             return broker_report, dir_path
+        except FileNotFoundError:
+            print("file not found\n")
         except Exception as e:
             print(type(e))
             
@@ -54,7 +64,7 @@ def validate_report(default, custom):
     """ingest the daily broker recap and perform the validations"""
     if default:
         broker_report, dir_path = default_files()
-        logger.info("Default file path chosen")
+        logger.info(f"Default file path chosen: {dir_path}")
     elif custom:
         broker_report, dir_path = get_path()
         logger.info(f"Custom file path provided: {dir_path}")

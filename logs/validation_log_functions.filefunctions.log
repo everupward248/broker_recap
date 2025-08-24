@@ -1,1 +1,3 @@
-2025-08-21 11:38:32,703 - functions.file_functions - INFO - Invalid entries have been compiled into a list for iteration at the provided path: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps - 107
+2025-08-23 23:44:59,788 - functions.file_functions - INFO - files read successfully - 21
+2025-08-23 23:44:59,866 - functions.file_functions - INFO - files read successfully - 21
+2025-08-23 23:44:59,937 - functions.file_functions - INFO - files read successfully - 21
