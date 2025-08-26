@@ -1,1 +1,4 @@
-2025-08-24 00:39:40,740 - functions.cli_args - INFO - Default file path provided: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps - 166
+2025-08-25 20:36:46,185 - functions.cli_args - INFO - Default file path chosen: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps - 68
+2025-08-25 20:36:46,332 - functions.cli_args - INFO - Data sets have been converted into pandas dataframes: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps\IBX_recap.xlsx - 85
+2025-08-25 20:36:46,410 - functions.cli_args - INFO - Data sets have been converted into pandas dataframes: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps\PEAK_recap.xlsx - 85
+2025-08-25 20:36:46,480 - functions.cli_args - INFO - Data sets have been converted into pandas dataframes: C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\data\broker_daily_recaps\SUC_recap.xlsx - 85

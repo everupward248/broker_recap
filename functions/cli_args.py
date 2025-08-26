@@ -115,7 +115,7 @@ def consolidate_valid(default, custom):
                 directory = input("What is your file path: ").strip()
                 directory = directory.replace("\\", "/")
                 directory = Path(directory)
-                logger.info(F"Default file path provided: {directory}")
+                logger.info(F"Custom file path provided: {directory}")
                 
                 if not directory.is_dir():
                     click.echo("Path provided is not a directory. Please provide a valid directory.\n")
@@ -173,5 +173,32 @@ def email_draft(default, custom, test):
             parameters = {"recipient": recipient, "subject": subject, "body": body_string, "attachments": file}
             create_email_draft(**parameters)
 
-# TODO: merge each invalid report with the broker codes to take the first email where the exec broker check did not fail
-# do a set() check to abort drafts that have more than 1 unique broker code entry
+    elif custom:
+        try:
+            while True:
+                directory = input("What is your file path: ").strip()
+                directory = directory.replace("\\", "/")
+                directory = Path(directory)
+                logger.info(F"Custom file path provided: {directory}")
+                
+                if not directory.is_dir():
+                    click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                    continue
+                # this check is necessary as Path("") returns the current directory "."
+                elif str(directory) == ".":
+                    click.echo("Path provided is not a directory. Please provide a valid directory.\n")
+                    continue
+                else:
+                    break
+            invalid_broker_file_path = invalid_directory_for_email(directory)
+        
+            for file in invalid_broker_file_path:
+                recipient = obtain_email_address(file)
+                body_string = "testing the default flag for email draft command"
+                subject = "Invalid Entries Detected in Daily Recap"
+                parameters = {"recipient": recipient, "subject": subject, "body": body_string, "attachments": file}
+                create_email_draft(**parameters)
+        except Exception as e:
+            print(e)
+    else:
+        sys.exit("Must provide an option. Plese use '--help' to view options\n")
