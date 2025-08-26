@@ -13,7 +13,7 @@ from .email_functions import test_email, create_email_draft, obtain_email_addres
 
 logger = get_logger(__name__)
 
-DEFAULT_PATH = "C:\\Users\\johnj\\OneDrive\\Documents\\programming\\projects\\polar_star\\broker_recap\\data\\broker_daily_recaps"
+DEFAULT_PATH = "C:\\Users\\johnj\\OneDrive\\Documents\\programming\\projects\\polar_star\\broker_recap\\broker_recap_package\\data\\broker_daily_recaps"
 
 def get_path():
     while True:

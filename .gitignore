@@ -5,7 +5,7 @@
 .env
 
 #ignore the data
-data/
+broker_recap_package/data/
 
 #ignore pycache
 __pycache__
