@@ -10,4 +10,4 @@ broker_recap_package/data/
 #ignore pycache
 __pycache__
 
-
+/broker_recap.egg-info

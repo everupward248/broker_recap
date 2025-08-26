@@ -1,0 +1,9 @@
+2025-08-25 21:34:00,946 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: ibex_email@ibex.com - 61
+2025-08-25 21:34:01,225 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:34:01,722 - broker_recap_package.functions.email_functions - INFO - Email draft created for: ibex_email@ibex.com - 35
+2025-08-25 21:34:01,767 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: peak_email@peak.com - 61
+2025-08-25 21:34:01,793 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:34:02,139 - broker_recap_package.functions.email_functions - INFO - Email draft created for: peak_email@peak.com - 35
+2025-08-25 21:34:02,149 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: sucden_email@sucden.com - 61
+2025-08-25 21:34:02,157 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:34:02,462 - broker_recap_package.functions.email_functions - INFO - Email draft created for: sucden_email@sucden.com - 35

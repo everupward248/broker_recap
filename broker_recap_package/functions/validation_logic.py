@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import functions.helper_functions as func
+import broker_recap_package.functions.helper_functions as func
 import datetime as dt
 from .logger_setup import get_logger
 from pandas.api.types import is_numeric_dtype, is_number

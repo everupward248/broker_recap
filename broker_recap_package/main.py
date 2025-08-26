@@ -1,5 +1,5 @@
-from functions.logger_setup import get_logger
-from functions import cli_args
+from broker_recap_package.functions.logger_setup import get_logger
+from broker_recap_package.functions import cli_args
 import click
 
 logger = get_logger(__name__)

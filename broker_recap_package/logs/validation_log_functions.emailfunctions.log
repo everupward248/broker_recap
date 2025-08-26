@@ -1,0 +1,9 @@
+2025-08-25 21:30:50,981 - functions.email_functions - INFO - Email address successfully extracted and being sent to: ibex_email@ibex.com - 61
+2025-08-25 21:30:51,266 - functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:30:51,691 - functions.email_functions - INFO - Email draft created for: ibex_email@ibex.com - 35
+2025-08-25 21:30:51,735 - functions.email_functions - INFO - Email address successfully extracted and being sent to: peak_email@peak.com - 61
+2025-08-25 21:30:51,769 - functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:30:52,063 - functions.email_functions - INFO - Email draft created for: peak_email@peak.com - 35
+2025-08-25 21:30:52,091 - functions.email_functions - INFO - Email address successfully extracted and being sent to: sucden_email@sucden.com - 61
+2025-08-25 21:30:52,093 - functions.email_functions - INFO - outlook launched - 15
+2025-08-25 21:30:52,425 - functions.email_functions - INFO - Email draft created for: sucden_email@sucden.com - 35
