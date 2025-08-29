@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import broker_recap_package.functions.helper_functions as func
 import datetime as dt
-from .logger_setup import get_logger
+from broker_recap_package.functions.logger_setup import get_logger
 from pandas.api.types import is_numeric_dtype, is_number
 
 logger = get_logger(__name__)

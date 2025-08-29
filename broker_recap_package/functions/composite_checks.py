@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-import functions.helper_functions as func
-from .logger_setup import get_logger
+import broker_recap_package.functions.helper_functions as func
+from broker_recap_package.functions.logger_setup import get_logger
 from datetime import date
 from pathlib import Path
 import sys

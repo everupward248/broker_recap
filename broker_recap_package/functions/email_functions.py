@@ -1,6 +1,6 @@
 from pathlib import Path
 import win32com.client
-from .logger_setup import get_logger
+from broker_recap_package.functions.logger_setup import get_logger
 import pandas as pd
 
 logger = get_logger(__name__)

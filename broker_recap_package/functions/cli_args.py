@@ -3,12 +3,12 @@ import pandas as pd
 import os
 import sys
 from pathlib import Path
-from .file_functions import file_ingestion, valid_dir, invalid_dir, concat_valid_reports, invalid_directory_for_email
-from .logger_setup import get_logger
-from .validation_logic import *
-from .composite_checks import *
-from .helper_functions import *
-from .email_functions import test_email, create_email_draft, obtain_email_address
+from broker_recap_package.functions.file_functions import file_ingestion, valid_dir, invalid_dir, concat_valid_reports, invalid_directory_for_email
+from broker_recap_package.functions.logger_setup import get_logger
+from broker_recap_package.functions.validation_logic import *
+from broker_recap_package.functions.composite_checks import *
+from broker_recap_package.functions.helper_functions import *
+from broker_recap_package.functions.email_functions import test_email, create_email_draft, obtain_email_address
 
 
 logger = get_logger(__name__)

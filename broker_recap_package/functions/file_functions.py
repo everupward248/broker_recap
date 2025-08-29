@@ -1,5 +1,5 @@
 import pandas as pd
-from .logger_setup import get_logger
+from broker_recap_package.functions.logger_setup import get_logger
 from pathlib import Path
 from datetime import date
 import sys
@@ -8,15 +8,17 @@ from pathlib import Path
 
 logger = get_logger(__name__)
 
+# set default data path so that program can be executed as script and as package
+DATA_PATH = Path(r"C:\Users\johnj\OneDrive\Documents\programming\projects\polar_star\broker_recap\broker_recap_package\data")
 
 def file_ingestion(broker_report):
     """Takes the provided file path and creates dataframes for all the required data"""
     try:
             # create the dataframes from the recap and validation data
             recap_df = pd.read_excel(broker_report)
-            broker_df = pd.read_excel('data/broker_codes.xlsx')
-            contract_df = pd.read_excel('data/contract_codes.xlsx')
-            valid_acct_df = pd.read_excel('data/valid_accounts.xlsx')
+            broker_df = pd.read_excel(DATA_PATH / 'broker_codes.xlsx')
+            contract_df = pd.read_excel(DATA_PATH / 'contract_codes.xlsx')
+            valid_acct_df = pd.read_excel(DATA_PATH / 'valid_accounts.xlsx')
 
             logger.info(f"files read successfully")
             
