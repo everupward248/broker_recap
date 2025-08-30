@@ -1,9 +1,12 @@
-2025-08-28 21:23:50,852 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: ibex_email@ibex.com - 61
-2025-08-28 21:23:51,120 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
-2025-08-28 21:23:51,535 - broker_recap_package.functions.email_functions - INFO - Email draft created for: ibex_email@ibex.com - 35
-2025-08-28 21:23:51,587 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: peak_email@peak.com - 61
-2025-08-28 21:23:51,616 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
-2025-08-28 21:23:51,888 - broker_recap_package.functions.email_functions - INFO - Email draft created for: peak_email@peak.com - 35
-2025-08-28 21:23:51,908 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: sucden_email@sucden.com - 61
-2025-08-28 21:23:51,910 - broker_recap_package.functions.email_functions - INFO - outlook launched - 15
-2025-08-28 21:23:52,171 - broker_recap_package.functions.email_functions - INFO - Email draft created for: sucden_email@sucden.com - 35
+2025-08-30 00:48:55,408 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: ibex_email@ibex.com - 62
+2025-08-30 00:48:55,412 - broker_recap_package.functions.email_functions - INFO - Validation columns successfuly parsed from the invalid broker report df - 75
+2025-08-30 00:48:55,677 - broker_recap_package.functions.email_functions - INFO - outlook launched - 16
+2025-08-30 00:48:56,081 - broker_recap_package.functions.email_functions - INFO - Email draft created for: ibex_email@ibex.com - 36
+2025-08-30 00:48:56,130 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: peak_email@peak.com - 62
+2025-08-30 00:48:56,134 - broker_recap_package.functions.email_functions - INFO - Validation columns successfuly parsed from the invalid broker report df - 75
+2025-08-30 00:48:56,159 - broker_recap_package.functions.email_functions - INFO - outlook launched - 16
+2025-08-30 00:48:56,461 - broker_recap_package.functions.email_functions - INFO - Email draft created for: peak_email@peak.com - 36
+2025-08-30 00:48:56,473 - broker_recap_package.functions.email_functions - INFO - Email address successfully extracted and being sent to: sucden_email@sucden.com - 62
+2025-08-30 00:48:56,477 - broker_recap_package.functions.email_functions - INFO - Validation columns successfuly parsed from the invalid broker report df - 75
+2025-08-30 00:48:56,479 - broker_recap_package.functions.email_functions - INFO - outlook launched - 16
+2025-08-30 00:48:56,725 - broker_recap_package.functions.email_functions - INFO - Email draft created for: sucden_email@sucden.com - 36

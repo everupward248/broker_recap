@@ -8,7 +8,7 @@ from broker_recap_package.functions.logger_setup import get_logger
 from broker_recap_package.functions.validation_logic import *
 from broker_recap_package.functions.composite_checks import *
 from broker_recap_package.functions.helper_functions import *
-from broker_recap_package.functions.email_functions import test_email, create_email_draft, obtain_email_address
+from broker_recap_package.functions.email_functions import test_email, create_email_draft, obtain_email_address, invalid_counts
 
 
 logger = get_logger(__name__)
@@ -168,7 +168,25 @@ def email_draft(default, custom, test):
         
         for file in invalid_broker_file_path:
             recipient = obtain_email_address(file)
-            body_string = "testing the default flag for email draft command"
+            # walrus operator ensures that items() can be used on invalid_count dictionary without pylance warning as only executes if return value of invalid_counts(file) is not none
+            if invalid_count := invalid_counts(file):
+                body_string = f"""
+                        <html>
+                        <body>
+                            <p>Good Day,</p>
+
+                            <p>Upon review of the provided report, it was noted that the following issues and respective frequencies were observed:</p>
+                            <ul>
+                            {''.join(f"<li>In{issue}: {count}</li>" for issue, count in invalid_count.items())}
+                            </ul>
+
+                            <p>Please review at your earliest convenience and make the necessary corrections to the provided entries. Take care to ensure that values provided are of an appropriate data type and sensible values.</p>
+
+                            <p>Kind Regards,<br>
+                            Team</p>
+                        </body>
+                        </html>
+                        """
             subject = "Invalid Entries Detected in Daily Recap"
             parameters = {"recipient": recipient, "subject": subject, "body": body_string, "attachments": file}
             create_email_draft(**parameters)
@@ -194,7 +212,26 @@ def email_draft(default, custom, test):
         
             for file in invalid_broker_file_path:
                 recipient = obtain_email_address(file)
-                body_string = "testing the default flag for email draft command"
+
+                # walrus operator ensures that items() can be used on invalid_count dictionary without pylance warning as only executes if return value of invalid_counts(file) is not none
+                if invalid_count := invalid_counts(file):
+                    body_string = f"""
+                            <html>
+                            <body>
+                                <p>Good Day,</p>
+
+                                <p>Upon review of the provided report, it was noted that the following issues and respective frequencies were observed:</p>
+                                <ul>
+                                {''.join(f"<li>In{issue}: {count}</li>" for issue, count in invalid_count.items())}
+                                </ul>
+
+                                <p>Please review at your earliest convenience and make the necessary corrections to the provided entries. Take care to ensure that values provided are of an appropriate data type and sensible values.</p>
+
+                                <p>Kind Regards,<br>
+                                Team</p>
+                            </body>
+                            </html>
+                            """
                 subject = "Invalid Entries Detected in Daily Recap"
                 parameters = {"recipient": recipient, "subject": subject, "body": body_string, "attachments": file}
                 create_email_draft(**parameters)

@@ -2,6 +2,7 @@ from pathlib import Path
 import win32com.client
 from broker_recap_package.functions.logger_setup import get_logger
 import pandas as pd
+import sys
 
 logger = get_logger(__name__)
 
@@ -20,7 +21,7 @@ def create_email_draft(recipient: str, subject: str, body: str, attachments=None
     mail = outlook.CreateItem(0)
     mail.To = recipient
     mail.Subject = subject
-    mail.Body = body
+    mail.HTMLBody = body
    
 
     if attachments:
@@ -61,7 +62,22 @@ def obtain_email_address(file) -> str:
     logger.info(f"Email address successfully extracted and being sent to: {email_address}")
     return email_address
 
-    
-
+def invalid_counts(invalid_broker_report: Path) -> dict[str, int] | None:
+    """
+    obtain the counts for each validation check to pass onto body of the email
+    """
+    invalid_broker_report_df = pd.read_excel(invalid_broker_report)
+    try: 
+        validation_columns = [col for col in invalid_broker_report_df.columns if col.strip().startswith('valid')]
+        if len(validation_columns) != 10:
+            logger.warning("Not all validation columns parsed from the invalid broker df")
+        else:
+            logger.info("Validation columns successfuly parsed from the invalid broker report df")
+            false_counts = {col: int((~invalid_broker_report_df[col].astype(bool)).sum()) for col in validation_columns}
+            return false_counts
+    except Exception as e:
+        logger.warning(f"An unexpected error occured: {e}") 
+        sys.exit("Invalid counts unsuccessfully extracted")
+        
 if __name__ == "__main__":
     test_email()
