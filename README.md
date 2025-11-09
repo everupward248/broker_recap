@@ -1,6 +1,6 @@
 # Daily Broker Recap Validator and Email Drafter
 
-A command line interface program using `clcick` that performs data validation using `pandas`, separates valid and invalid records using `pathlib`, and drafts notification emails with attached CSV reports using `win32com`.
+A command line interface program using `click` that performs data validation using `pandas`, separates valid and invalid records using `pathlib`, and drafts notification emails with attached CSV reports using `win32com`.
 
 ## Business Problem
 At a hedge fund, reports are received daily from the brokers regarding trades made on clients' behalf that day. These files will then be using to update the portfolio management system. 
