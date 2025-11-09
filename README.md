@@ -1,8 +1,13 @@
-# Data Validator & Email Notifier
+# Daily Broker Recap Validator and Email Drafter
 
-A Python script that performs data validation using `pandas`, separates valid and invalid records, and sends notification emails with attached CSV reports using `email` and `smtplib`.
+A Python script that performs data validation using `pandas`, separates valid and invalid records using `pathlib`, and drafts notification emails with attached CSV reports using `win32com`.
 
-This is a simple, top-down script meant to be executed directly. It does encapsulate logic within a `if __name__ == "__main__"` block.
+## Business Problem
+At a hedge fund, reports are received daily from the brokers regarding trades made on clients' behalf that day. These files will then be using to update the portfolio management system. 
+
+However, these reports often contain errors such as: typos, mispriced trades, or invalid internal codes. 
+
+This script automates the data validation of these reports, consolidating the valid trades and separating the invalids, then drafts emails containing the invalid entries report to the relevant broker with a dynamic email body summarizing the errors.
 
 ---
 
@@ -11,18 +16,7 @@ This is a simple, top-down script meant to be executed directly. It does encapsu
 - Reads tabular data from CSV or Excel
 - Validates records according to custom rules (e.g., required fields, data types, etc.)
 - Outputs valid and invalid entries
-- Sends email summaries with attachments
+- Drafts email summaries with attachments
 
 ---
 
-## Requirements
-
-- Python 3.8+
-- SMTP credentials (e.g., for Gmail, Outlook, etc.)
-
-### Python Dependencies
-
-Install the required packages using pip:
-
-```bash
-pip install -r requirements.txt
