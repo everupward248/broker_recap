@@ -3,7 +3,7 @@
 A command line interface program using `click` that performs data validation using `pandas`, separates valid and invalid records using `pathlib`, drafts notification emails with attached CSV reports using `win32com`, and logs the program using the `logger` module.
 
 ## Business Problem
-At a hedge fund, reports are received daily from the brokers regarding their trades. These files will then be using to update the portfolio management system. 
+At a hedge fund, reports are received daily from the brokers regarding their trades. These files will then be used to update the portfolio management system. 
 
 However, these reports often contain errors such as: typos, mispriced trades, or invalid internal codes. 
 
